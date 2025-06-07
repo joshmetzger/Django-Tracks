@@ -1,0 +1,16 @@
+{% extends 'MusicApp/base.html' %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+    <h3>Are you sure you want to delete "{{ track.track_name }}"?</h3>
+    <div class="fade-card">
+        <div class="small-container">
+            <form method="POST" action="{% url 'confirm_delete' track.id %}">
+                {% csrf_token %}
+                <input type="submit" value="Yes, delete it">
+                <a href="{% url 'track_details' track.id %}"><button type="button">Cancel</button></a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

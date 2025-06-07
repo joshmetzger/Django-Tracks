@@ -1,0 +1,26 @@
+{% extends "MusicApp/base.html" %}
+
+{% block title %}Beautiful Soup Page{% endblock %}
+
+{% block content %}
+    <h3>Favorite Tracks</h3>
+    <div class="fade-card">
+        <div class="small-container" style="margin-bottom: 180px;">
+            <div class="tracks-table">
+                <table class="table" id="">
+                    <tr id="headerRow">
+                        <th>Favorite Track Name</th>
+                        <th>Cost</th>
+                    </tr>
+                    {% for track in fav_tracks %}
+                    <tr>
+                        <td>{{ track.track_name }}</td>
+                        <td>{{ track.price }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

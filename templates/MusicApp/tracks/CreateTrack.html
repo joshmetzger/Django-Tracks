@@ -1,0 +1,25 @@
+{% extends 'MusicApp/base.html' %}
+
+{% block title %}Create a New Track{% endblock %}
+
+{% block content %}
+    <h3>Create a New Track</h3>
+    <div class="fade-card">
+        <div class="small-container">
+            <div class="tracks-table">
+                <div id="track-form">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="frmBtn_container">
+                           <input id="new-track-button" type="submit" name="Save_Track" value="Create Track">
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

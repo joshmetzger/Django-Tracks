@@ -1,0 +1,38 @@
+{% extends "MusicApp/base.html" %}
+
+{% block title %}Beautiful Soup Page{% endblock %}
+
+{% block content %}
+    <h3>Top Track Names</h3>
+    <div class="fade-card">
+        <div class="small-container" style="margin-bottom: 180px;">
+            <div class="tracks-table">
+
+
+                    <table class="table" id="">
+                        <tr id="headerRow">
+                            <th>Track Name</th>
+                            <th>Cost</th>
+                            <th>Add to Favorites</th>
+                        </tr>
+                       {% for track in track_list %}
+                        <tr>
+                            <td>{{ track.track_name }}</td>
+                            <td>{{ track.price }}</td>
+                            <td>
+                                <form method="POST" action="{% url 'add_fav_track' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="track_name" value="{{ track.track_name }}">
+                                    <input type="hidden" name="price" value="{{ track.price }}">
+                                    <input type="submit" value="Add">
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

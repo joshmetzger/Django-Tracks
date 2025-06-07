@@ -1,0 +1,45 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'CSS/MusicApp.css' %}">
+    <script src="{% static 'JS/MusicApp.js' %}" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<header>
+    <nav class="sticky top-0 bg-white z-50 shadow">
+        <ul class="flex justify-center space-x-6 py-4">
+            <li><a href="{% url 'music_home' %}" class="">Home</a></li>
+            <li><a href="{% url 'create_track' %}" class="">Create a Track</a></li>
+            <li><a href="{% url 'view_tracks' %}" class="">View Your Tracks</a></li>
+            <li><a href="{% url 'test_API' %}" class="">Test API</a></li>
+            <li><a href="{% url 'beautiful_soup' %}" class="">View Top Tracks:(Beau Soup)</a></li>
+            <li><a href="{% url 'favorites' %}" class="">View Favorite Tracks</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+
+    <div class="main-container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <section id="block-footer">
+        <p id="footer-right"><a href="#">Terms</a>|<a href="#">Privacy</a></p>
+        <p id="footer-left">&copy;2025 - MusicApp</p>
+    </section>
+</body>
+</html>

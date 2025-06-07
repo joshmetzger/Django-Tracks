@@ -1,0 +1,30 @@
+{% extends 'MusicApp/base.html' %}
+
+{% block title %}All Tracks{% endblock %}
+
+{% block content %}
+    <h3>All Your Tracks</h3>
+    <div class="fade-card">
+        <div class="small-container">
+            <div class="tracks-table">
+                <table class="table" id="">
+                    <tr id="headerRow">
+                        <th>Artist Name</th>
+                        <th>Product Name</th>
+                        <th>Track Name</th>
+                        <th>Genre</th>
+                    </tr>
+                    {% for track in tracks %}
+                    <tr>
+                        <td class="">{{ track.artist_name }}</td>
+                        <td class="">{{ track.product_name }}</td>
+                        <td class=""><a href="{% url 'track_details' track.id %}">{{ track.track_name }}</a></td>
+                        <td class="">{{ track.genre_name }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
